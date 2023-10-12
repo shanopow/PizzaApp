@@ -10,6 +10,7 @@
                 <li @onclick="@(() => ShowConfigurePizzaDialog(special))" style="background-image: url('@special.ImageUrl')">
                     <div class="pizza-info">
                         <span class="title">@special.Name</span>
+                        <br><br>
                         @special.Description
                         <span class="price">@special.GetFormattedBasePrice()</span>
                     </div>
@@ -19,16 +20,12 @@
     </ul>
 </div>
 
-<ConfigurePizzaDialog Pizza="configuringPizza"
-                      OnCancel="CancelConfigurePizzaDialog"
-                      OnConfirm="ConfirmConfigurePizzaDialog" />
-
 @if (showingConfigureDialog)
 {
-    <ConfigurePizzaDialog Pizza="configuringPizza" />
-    <ConfigurePizzaDialog Pizza="configuringPizza" OnCancel="CancelConfigurePizzaDialog" />
+    <ConfigurePizzaDialog Pizza="configuringPizza"
+                          OnCancel="CancelConfigurePizzaDialog"
+                          OnConfirm="ConfirmConfigurePizzaDialog" />
 }
-
 
 @code{
     List<PizzaSpecial> specials;
